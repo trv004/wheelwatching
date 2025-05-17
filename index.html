@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Wheel Watching</title>
-    
+
     <!-- CSS -->
     <link rel="stylesheet" href="global.css" />
     <link rel="stylesheet" href="map.css" />
@@ -18,7 +18,41 @@
     <script src="map.js" type="module"></script>
   </head>
   <body>
-    <h1>🚴🏼‍♀️ Wheel Watching</h1>
+    <header
+      style="display: flex; gap: 1em; align-items: baseline; padding: 0.5em 1em;"
+    >
+      <h1>🚴🏼‍♀️ Wheel Watching</h1>
+
+      <label style="margin-left: auto; user-select: none;">
+        Filter by time:
+        <input
+          id="timeFilter"
+          type="range"
+          min="-1"
+          max="1440"
+          value="-1"
+          step="1"
+          style="display: block; margin-top: 0.3em; width: 200px;"
+        />
+        <time
+          id="timeDisplay"
+          style="display: block; font-weight: bold; margin-top: 0.2em;"
+          >Any time</time
+        >
+        <em
+          id="anyTimeLabel"
+          style="display: none; color: gray; font-style: italic; margin-top: 0.1em;"
+          >(any time)</em
+        >
+      </label>
+    </header>
+
     <div id="map"></div>
+    <div class="legend">
+  <div class="legend-label">Legend:</div>
+  <div class="legend-item" style="--departure-ratio: 1">More departures</div>
+  <div class="legend-item" style="--departure-ratio: 0.5">Balanced</div>
+  <div class="legend-item" style="--departure-ratio: 0">More arrivals</div>
+</div>
   </body>
 </html>
